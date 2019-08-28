@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "van-datetime-picker": "vant-weapp/datetime-picker",
+    "van-popup": "vant-weapp/popup",
+    "van-icon": "vant-weapp/icon",
+    "van-radio": "vant-weapp/radio",
+    "van-radio-group": "vant-weapp/radio-group",
+    "van-button": "vant-weapp/button",
+    "van-collapse": "vant-weapp/collapse",
+    "van-collapse-item": "vant-weapp/collapse-item",
+    "van-rate": "vant-weapp/rate",
+    "van-action-sheet": "vant-weapp/action-sheet",
+    "van-switch": "vant-weapp/switch"
+  },
+  "navigationBarTitleText": "故障维修单"
+}

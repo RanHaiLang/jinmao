@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-button": "vant-weapp/button",
+    "van-collapse": "vant-weapp/collapse",
+    "van-collapse-item": "vant-weapp/collapse-item",
+    "van-icon": "vant-weapp/icon",
+    "van-popup": "vant-weapp/popup"
+  },
+  "navigationBarTitleText": "资产查询"
+}

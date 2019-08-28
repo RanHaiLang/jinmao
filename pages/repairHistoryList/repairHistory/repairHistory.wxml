@@ -1,0 +1,216 @@
+<view class='main'>
+  <!--************* 基本信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">基本信息</text>
+      <text class="iconfont icon-open" data-id="0" wx:if="{{tabSwitch[0]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="0" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[0]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>单据编号：</text>
+          <text class='item-value'>000009</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工单描述：</text>
+          <text class='item-value'>高冲计划检修</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>设备编号：</text>
+          <text class='item-value'>A101-01-000009</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>设备名称：</text>
+          <text class='item-value'>国产高速冲床</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>设备型号：</text>
+          <text class='item-value'>KLD4</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工厂/车间：</text>
+          <text class='item-value'>D2-2F</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>安装区域：</text>
+          <text class='item-value'>DW9</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>安装位置：</text>
+          <text class='item-value'>D2 02</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>维修类型：</text>
+          <text class='item-value'>维护保养</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>检修到期日：</text>
+          <text class='item-value' bindtap="onShowStart">2019-7-5 14：39</text>
+          <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+            <van-datetime-picker type="datetime" value="{{ currentDate }}" bind:input="onInput" bind:cancel="onCancel" />
+          </van-popup>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>计划开始时间：</text>
+          <text class='item-value' bindtap="onShowStart">2019-7-5 14：39</text>
+          <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+            <van-datetime-picker type="datetime" value="{{ currentDate }}" bind:input="onInput" bind:cancel="onCancel" />
+          </van-popup>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>计划完成时间：</text>
+          <text class='item-value'>2019-7-5 14：39</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>是否外委：</text>
+          <view class="item-value">
+            <radio-group class="radio-group">
+              <label class="radio">
+                <radio value="是" />是
+              </label>
+              <label class="radio">
+                <radio value="否" />否
+              </label>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 工作信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">工作信息</text>
+      <text class="iconfont icon-open" data-id="1" wx:if="{{tabSwitch[1]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="1" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[1]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>检修责任人：</text>
+          <text class='item-value'>肖科</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>工作开始时间：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>检修记录：</text>
+          <textarea class='item-value' auto-height />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>延迟维修原因：</text>
+          <text class='item-value'></text>
+          <text class='item-icon iconfont icon-sousuo'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 图片及文件 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">图片及文件</text>
+      <text class="iconfont icon-open" data-id="2" wx:if="{{tabSwitch[2]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="2" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[2]}}">
+      <view class="img-wrap">
+        <image class="img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+        <view class="img-btn" bindtap="uploadImg" wx:if="{{images.length < 9}}">
+          <van-icon name="photo" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 登记工时 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">登记工时</text>
+      <text class="iconfont icon-open" data-id="3" wx:if="{{tabSwitch[3]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="3" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[3]}}">
+      <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+        <van-collapse-item custom-class="repair" title="{{index+1}}: {{item.one}}--{{item.four}}" wx:for="{{repairList}}">
+          <view class='repair-content'>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>姓名：</view>
+              <view class='repair-content-value'>{{item.one}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>开始时间：</view>
+              <view class='repair-content-value'>{{item.two}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>结束时间：</view>
+              <view class='repair-content-value'>{{item.three}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>实际工时：</view>
+              <view class='repair-content-value'>{{item.four}}</view>
+            </view>
+          </view>
+        </van-collapse-item>
+      </van-collapse>
+    </view>
+  </view>
+  <!--************* 维修评价 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维修评价</text>
+      <text class="iconfont icon-open" data-id="4" wx:if="{{tabSwitch[4]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="4" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[4]}}">
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修质量：</text>
+          <van-rate value="{{ value }}" bind:change="onMassChange" />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修评价：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>评价人：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

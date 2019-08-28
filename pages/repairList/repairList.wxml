@@ -1,0 +1,30 @@
+
+<view class="container">
+  <view class="item" wx:for="{{data}}" catchtap="goToRepairOrder">
+    <view class="item-top">
+      <view class="item-top-inner">
+        <text class="iconfont icon-albums"></text>
+        <text class="desc"> {{item.one}} - </text>
+        <text>{{item.two}}</text>
+      </view>
+    </view>
+    <view class="item-middle">
+      <text class="key">故障设备：</text>
+      <text class="value">{{item.three}}</text>
+    </view>
+    <view class="item-middle">
+      <text class="key">维修状态：</text>
+      <text class="value">{{item.four}}</text>
+    </view>
+    <view class="item-bottom">
+      <view class="item-bottom-inner">
+        <text class="iconfont icon-ren-copy"></text>
+        <text class="name"> {{item.five}}</text>
+      </view>
+      <view class="item-bottom-inner">
+        <text class="iconfont icon-shijian-copy-copy-copy-copy-copy"></text>
+        <text class="name"> {{item.six}}</text>
+      </view>
+    </view>
+  </view>
+</view>

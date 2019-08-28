@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="search">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch" bind:cancel="onCancel" />
+  </view>
+  <view class="content">
+    <view class="content-inner">
+      <view class="item" bindtap="closeModal">
+        <view class="item-middle">
+          <text class="key">资产编码：</text>
+          <text class="value">A117-01-0000018</text>
+        </view>
+        <view class="item-middle">
+          <text class="key">资产名称：</text>
+          <text class="value">条码贴标机</text>
+        </view>
+      </view>
+      <view class="item" bindtap="closeModal">
+        <view class="item-middle">
+          <text class="key">资产编码：</text>
+          <text class="value">A117-01-0000018</text>
+        </view>
+        <view class="item-middle">
+          <text class="key">资产名称：</text>
+          <text class="value">条码贴标机</text>
+        </view>
+      </view>
+      <view class="item" bindtap="closeModal">
+        <view class="item-middle">
+          <text class="key">资产编码：</text>
+          <text class="value">A117-01-0000018</text>
+        </view>
+        <view class="item-middle">
+          <text class="key">资产名称：</text>
+          <text class="value">条码贴标机</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

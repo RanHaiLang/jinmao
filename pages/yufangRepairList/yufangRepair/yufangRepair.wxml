@@ -1,0 +1,241 @@
+<!--pages/yufangRepairList/yufangRepair/yufangRepair.wxml-->
+<view class='main'>
+  <!--************* 基本信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">基本信息</text>
+      <text class="iconfont icon-open" data-id="0" wx:if="{{tabSwitch[0]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="0" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[0]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工单编号：</text>
+          <text class='item-value'>000009</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>维保描述：</text>
+          <text class='item-value'>高冲计划检修</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工单类型：</text>
+          <text class='item-value'>预防性维护</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>资产管理部门：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工单分类：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>状态：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>创建人：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>创建日期：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 维护资产清单 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维护资产清单</text>
+      <text class="iconfont icon-open" data-id="1" wx:if="{{tabSwitch[1]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="1" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[1]}}">
+      <view class="detail-list">
+        <view class="detail-item">
+          <view class="detail-text">
+            <text class="detail-key">设备编号：</text>
+            <text class="detail-value">KT002-02-0001</text>
+          </view>
+          <view class="detail-text">
+            <text class="detail-key">设备描述：</text>
+            <text class="detail-value">空气源热泵</text>
+          </view>
+        </view>
+        <view class="detail-item">
+          <view class="detail-text">
+            <text class="detail-key">设备编号：</text>
+            <text class="detail-value">KT002-02-0001</text>
+          </view>
+          <view class="detail-text">
+            <text class="detail-key">设备描述：</text>
+            <text class="detail-value">空气源热泵</text>
+          </view>
+        </view>
+        <view class="detail-item">
+          <view class="detail-text">
+            <text class="detail-key">设备编号：</text>
+            <text class="detail-value">KT002-02-0001</text>
+          </view>
+          <view class="detail-text">
+            <text class="detail-key">设备描述：</text>
+            <text class="detail-value">空气源热泵</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 维护步骤 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维护步骤</text>
+      <text class="iconfont icon-open" data-id="2" wx:if="{{tabSwitch[2]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="2" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[2]}}">
+      <view class="weihubuzhou">
+        <view class="weihubuzhou-inner">
+          <text>1、检修部位：</text>
+          <text>1.1、检修内容及工作标准：LOOS维修标准 </text>
+          <text>1.2、检修内容及工作标准：水位限制器；排空并设定水位点 </text>
+          <text>1.3、检修内容及工作标准：压力调节器；检查设定点，并与压力表相比较 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 维修信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维修信息</text>
+      <text class="iconfont icon-open" data-id="3" wx:if="{{tabSwitch[3]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="3" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[3]}}">
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>开始时间：</text>
+          <text class='item-value' bindtap="onShowStart">2019-7-5 14：39</text>
+          <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+            <van-datetime-picker type="datetime" value="{{ currentDate }}" bind:input="onInput" bind:cancel="onCancel" />
+          </van-popup>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>结束时间：</text>
+          <text class='item-value'>2019-7-5 14：39</text>
+        </view>
+      </view>
+      <!-- 是否委外根据后台判断，无需显示此字段
+            是否委外根据后台判断，无需显示此字段
+            是否委外根据后台判断，无需显示此字段
+            是否委外根据后台判断，无需显示此字段
+            是否委外根据后台判断，无需显示此字段
+      333 -->
+      <!-- <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>是否委外：</text>
+          <view class="item-value">
+            <radio-group value="{{ weiwai }}" bind:change="onWeiwaiChange" class="radio-group">
+              <label class="radio">
+                <radio value="是" />是
+              </label>
+              <label class="radio">
+                <radio value="否" />否
+              </label>
+            </radio-group>
+          </view>
+        </view>
+      </view> -->
+      <block wx:if="{{weiwaiChecked}}">
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>外委维修单位：</text>
+            <input class='item-value' />
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>客户联系人：</text>
+            <input class='item-value' />
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>客户联系电话：</text>
+            <input class='item-value' />
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>验收结果：</text>
+            <view class="item-value">
+              <radio-group class="radio-group">
+                <label class="radio">
+                  <radio value="合格" />合格
+                </label>
+                <label class="radio">
+                  <radio value="不合格" />不合格
+                </label>
+              </radio-group>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--************* 维修评价 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维修评价</text>
+      <text class="iconfont icon-open" data-id="4" wx:if="{{tabSwitch[4]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="4" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[4]}}">
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修质量：</text>
+          <van-rate value="{{ value }}" bind:change="onMassChange" />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修及时性：</text>
+          <van-rate value="{{ value }}" bind:change="onMannerChange" />
+        </view>
+      </view>
+      <!-- <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修评价：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>评价人：</text>
+          <input class='item-value' />
+        </view>
+      </view> -->
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <button type="primary" size="default" bindtap="nextStep">下一步</button>
+</view>
+<!--************* 下一步按钮 *************-->
+<van-action-sheet show="{{ showActionSheet }}" actions="{{ actions }}" cancel-text="取消" bind:cancel="onCancel" bind:select="onSelect" />

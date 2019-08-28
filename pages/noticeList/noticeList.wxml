@@ -1,0 +1,19 @@
+<!--pages/noticeList/noticeList.wxml-->
+<view class="container">
+  <view class="list">
+    <view class="item" bindtap="goToNotice" wx:for="{{dataList}}" data-item="{{item}}">
+      <view class="img-wrap" wx:if="{{item.NOTUDFCHAR02 == '' || item.NOTUDFCHAR02 == null}}">
+        <image mode="aspectFill" src="/images/1.png" />
+      </view>
+      <view class="img-wrap" wx:if="{{item.NOTUDFCHAR02 != '' && item.NOTUDFCHAR02 != null}}">
+        <image mode="aspectFill" src="{{apacheImages + item.NOTUDFCHAR02}}" />
+      </view>
+      <view class="info">
+        <view class="info-inner">
+          <text class="info-title">{{item.NOT_DESC}}</text>
+          <text class="time">{{item.NOT_DATE}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

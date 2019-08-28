@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-search": "vant-weapp/search"
+  },
+  "navigationBarTitleText": "设备信息列表"
+}

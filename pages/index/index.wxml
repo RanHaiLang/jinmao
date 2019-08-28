@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view class="container overlay-bangding" wx:if="{{!hasUserBind}}">
+  <van-cell-group>
+    <van-field
+      required
+      clearable
+      label="用户名"
+      placeholder="请输入用户名"
+      error-message='{{username_err}}'
+      bind:change="userOnChange"
+    />
+    <van-field
+      type="password"
+      label="密码"
+      placeholder="请输入密码"
+      required
+      error-message='{{password_err}}'
+      bind:change="passOnChange"
+    />
+  </van-cell-group>
+  <view style="padding:10px;">
+    <button type="primary" size="default" bindtap="userBinding">确定</button>
+  </view>
+</view>
+
+<view class="container overlay" wx:if="{{!hasUserInfo && canIUse}}">
+  <view class="overlay-content">
+    <view class="icon-wrap">
+      <text class="iconfont icon-guzhangbaoxiu"></text>
+    </view>
+    <text class="word">欢迎使用金茂维修小程序</text>
+    <button type="primary" size="default" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即使用</button>
+  </view>
+</view>
+
+
+<view class="container" wx:else>
+  <swiper indicator-dots="true" autoplay='true' interval="5000" duration="1000" circular="true">
+    <swiper-item wx:for='{{imgUrls}}'>
+      <image src='{{item}}' />
+    </swiper-item>
+  </swiper>
+  <view class='common'>
+    <view class='common-title'>常用功能</view>
+    <van-row class='common-content'>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToZichanchaxun'>
+          <text class="iconfont icon-shebeixinxichaxun" style='color:#0382de;'></text>
+          <text class='name'>资产查询</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToBaoxiu'>
+          <text class="iconfont icon-saomiao" style='color: #6f44f2;'></text>
+          <text class='name'>故障报修</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToRepairList'>
+          <text class="iconfont icon-guzhangbaoxiu" style='color:#f38f10;'></text>
+          <text class='name'>故障维修</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToYufangRepairList'>
+          <text class="iconfont icon-jihuagongzuo" style='color:#1a9f82;'></text>
+          <text class='name'>PM维修</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToNoticeList'>
+          <text class="iconfont icon-gonggao" style='color:#1a9f82;'></text>
+          <text class='name'>通知公告</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view class='common-item' bindtap='goToKpi'>
+          <text class="iconfont icon-kpi" style='color: #6f44f2;'></text>
+          <text class='name'>看板管理</text>
+        </view>
+      </van-col>
+      <!-- <van-col span="6">
+        <view class='common-item' bindtap='goToRepairHistoryList'>
+          <text class="iconfont icon-lishichaxun" style='color:#0382de;'></text>
+          <text class='name'>维修履历</text>
+        </view>
+      </van-col> -->
+    </van-row>
+  </view>
+</view>

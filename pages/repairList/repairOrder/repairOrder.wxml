@@ -1,0 +1,190 @@
+<!--pages/repairList/repairOrder/repairOrder.wxml-->
+<view class='main'>
+  <!--************* 基本信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">故障信息</text>
+      <text class="iconfont icon-open" data-id="0" wx:if="{{tabSwitch[0]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="0" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[0]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>报修单号：</text>
+          <text class='item-value'>000009</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>故障描述：</text>
+          <text class='item-value'>左右弯管机无法联机</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>报修类型：</text>
+          <text class='item-value'>给排水</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>故障设备编码：</text>
+          <text class='item-value'>A101-01-000009</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>故障设备名称：</text>
+          <text class='item-value'>左右弯管一体机</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>设备位置：</text>
+          <text class='item-value'>KLD4</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>工单类型：</text>
+          <text class='item-value'>D2-2F</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>报修类型：</text>
+          <text class='item-value'>D2-2F</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>提报部门：</text>
+          <text class='item-value'>DW9</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>提报人：</text>
+          <text class='item-value'>D2 02</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>备件不足：</text>
+          <van-switch checked="{{ beijianChecked }}" bind:change="onBeijianChange" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 报修挂起 *************-->
+  <view class='block' wx:if="{{beijianChecked}}">
+    <view class='header'>
+      <text class="header-text">报修挂起</text>
+      <text class="iconfont icon-open" data-id="1" wx:if="{{tabSwitch[1]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="1" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[1]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>挂起时间：</text>
+          <text class='item-value'>2019-7-5 16:32</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>挂起人：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>报修重启：</text>
+          <van-switch checked="{{ chongqiChecked }}" bind:change="onChongqiChange" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 报修重启 *************-->
+  <view class='block' wx:if="{{chongqiChecked}}">
+    <view class='header'>
+      <text class="header-text">报修重启</text>
+      <text class="iconfont icon-open" data-id="2" wx:if="{{tabSwitch[2]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="2" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[2]}}">
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>报修重启时间：</text>
+          <text class='item-value'>2019-7-5 16:32</text>
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>报修重启人：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 图片及文件 *************-->
+  <view class='block' wx:if="{{beijianbuzu}}">
+    <view class='header'>
+      <text class="header-text">图片及文件</text>
+      <text class="iconfont icon-open" data-id="3" wx:if="{{tabSwitch[3]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="3" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[3]}}">
+      <view class="img-wrap">
+        <image class="img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+        <view class="img-btn" bindtap="uploadImg" wx:if="{{images.length < 9}}">
+          <van-icon name="photo" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 维修完成 *************-->
+  <view class='block' wx:if="{{beijianbuzu}}">
+    <view class='header'>
+      <text class="header-text">维修完成</text>
+      <text class="iconfont icon-open" data-id="4" wx:if="{{tabSwitch[4]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="4" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[4]}}">
+      <!-- <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修质量：</text>
+          <van-rate value="{{ value }}" bind:change="onMassChange" />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>维修及时性：</text>
+          <van-rate value="{{ value }}" bind:change="onMannerChange" />
+        </view>
+      </view> -->
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>报修完成时间：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>报修完成人：</text>
+          <input class='item-value' />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <button type="primary" size="default" bindtap="nextStep">下一步</button>
+</view>
+<!--************* 下一步按钮 *************-->
+<van-action-sheet
+  show="{{ showActionSheet }}"
+  actions="{{ actions }}"
+  cancel-text="取消"
+  bind:cancel="onCancel"
+  bind:select="onSelect"
+/>

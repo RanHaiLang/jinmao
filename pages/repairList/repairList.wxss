@@ -1,0 +1,50 @@
+/* pages/repairList/repairList.wxss */
+page {
+  background-color: #f1f2f4;
+}
+.container{
+  padding: 10rpx 10rpx 0;
+}
+.item{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 8rpx;
+  font-size: 26rpx;
+  border: 1px solid #e5e5e5;
+}
+.item-top{
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 14rpx;
+}
+.item-top-inner{
+  margin:  20rpx 16rpx;
+  color: #aeacb4;
+}
+.desc{
+  color: #488aff;
+}
+.item-middle{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx 0 14rpx;
+  color: #15191d;
+}
+item-middle .value{
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-bottom{
+  border-top: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  color: #aeacb4;
+}
+.item-bottom-inner{
+  margin: 20rpx 16rpx;
+}

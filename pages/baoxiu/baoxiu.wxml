@@ -1,0 +1,96 @@
+<!--pages/baoxiu/baoxiu.wxml-->
+<form bindsubmit="testSubmit" report-submit="true">
+  <view class='main'>
+    <!--************* 基本信息 *************-->
+    <view class='block'>
+      <view class='header'>
+        <text class="header-text">故障信息</text>
+      </view>
+      <view class='content'>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>故障设备编码：</text>
+            <text class='item-value'></text>
+            <text class='item-icon iconfont icon-saomiao' bindtap="takeScan"></text>
+            <text class='item-icon iconfont icon-sousuo' bindtap="showModal"></text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>故障设备名称：</text>
+            <text class='item-value'></text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>报修单号：</text>
+            <text class='item-value'></text>
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>故障描述：</text>
+            <input class='item-value' />
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>设备位置：</text>
+            <input class='item-value' />
+            <text class='item-icon iconfont icon-sousuo' bindtap="showModal"></text>
+          </view>
+        </view>
+        <view class='item writable'>
+          <view class='item-inner'>
+            <text class='item-key'>报修类型：</text>
+            <text class='item-value'>{{baoxiuleixing}}</text>
+            <text class='item-icon iconfont icon-close1' bindtap="showGuzhangleixing"></text>
+            <van-action-sheet show="{{ showBaoxiuleixing }}" actions="{{ actions }}" bind:cancel="onCancel" bind:select="onSelect" />
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>工单类型：</text>
+            <text class='item-value'></text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>提报部门：</text>
+            <text class='item-value'></text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>提报人：</text>
+            <text class='item-value'></text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='item-inner'>
+            <text class='item-key'>提报时间：</text>
+            <text class='item-value'>2019-7-26 15:10</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--************* 图片及文件 *************-->
+    <view class='block'>
+      <view class='header'>
+        <text class="header-text">图片及文件</text>
+      </view>
+      <view class='content'>
+        <view class="img-wrap">
+          <image class="img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+          <view class="img-btn" bindtap="uploadImg" wx:if="{{images.length < 9}}">
+            <van-icon name="photo" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <!-- <button type="primary" size="default">报修</button> -->
+    <button form-type="submit">报修</button>
+  </view>
+</form>

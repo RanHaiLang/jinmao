@@ -1,0 +1,5 @@
+/* pages/noticeList/notice/notice.wxss */
+.container{
+  padding: 20rpx;
+  background-color: #fff;
+}

@@ -1,0 +1,149 @@
+<view>
+  <!--************* 基本信息 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">基础信息</text>
+      <text class="iconfont icon-open" data-id="0" wx:if="{{tabSwitch[0]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="0" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[0]}}">
+      <view class='item writable'>
+        <view class='item-inner'>
+          <text class='item-key'>资产编码：</text>
+          <text class='item-value'>A90-100036589</text>
+          <text class='item-icon iconfont icon-saomiao' bindtap="takeScan"></text>
+          <text class='item-icon iconfont icon-sousuo' bindtap="showModal"></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>资产名称：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>管理部门：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>使用部门：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>重要程度：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>投用日期：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>品牌：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>制造商：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>资产位置：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>规格型号：</text>
+          <text class='item-value'></text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='item-inner'>
+          <text class='item-key'>状态：</text>
+          <text class='item-value'></text>
+          <van-button type="danger" bindtap="goToBaoxiu">报修</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--************* 附件清单 *************-->
+  <!-- <view class='block'>
+    <view class='header'>
+      <text class="header-text">附件清单</text>
+      <text class="iconfont icon-open" data-id="1" wx:if="{{tabSwitch[1]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="1" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[1]}}">
+      <view class='file'>
+        <view>国产高速冲床检修保养标准_201904180916.pdf</view>
+      </view>
+      <view class='file'>
+        <view>国产高速冲床检修保养标准_201904180916.pdf</view>
+      </view>
+      <view class='file'>
+        <view>国产高速冲床检修保养标准_201904180916.pdf</view>
+      </view>
+    </view>
+  </view> -->
+
+  <!--************* 维修履历 *************-->
+  <view class='block'>
+    <view class='header'>
+      <text class="header-text">维修履历</text>
+      <text class="iconfont icon-open" data-id="1" wx:if="{{tabSwitch[1]}}" bindtap="onTabSwitch"></text>
+      <text class="iconfont icon-close" data-id="1" wx:else bindtap="onTabSwitch"></text>
+    </view>
+    <view class='content' wx:if="{{tabSwitch[1]}}">
+      <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+        <van-collapse-item custom-class="repair" title="{{index+1}}: {{item.two}} [{{item.eight}}]" wx:for="{{repairList}}">
+          <view class='repair-content'>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>报修单号：</view>
+              <view class='repair-content-value'>{{item.one}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>报修描述：</view>
+              <view class='repair-content-value'>{{item.two}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>设备位置：</view>
+              <view class='repair-content-value'>{{item.three}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>维修人：</view>
+              <view class='repair-content-value'>{{item.four}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>提报部门：</view>
+              <view class='repair-content-value'>{{item.five}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>报修时间：</view>
+              <view class='repair-content-value'>{{item.six}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>完成时间：</view>
+              <view class='repair-content-value'>{{item.seven}}</view>
+            </view>
+            <view class='repair-content-list'>
+              <view class='repair-content-key'>状态：</view>
+              <view class='repair-content-value'>{{item.eight}}</view>
+            </view>
+          </view>
+        </van-collapse-item>
+      </van-collapse>
+    </view>
+  </view>
+</view>

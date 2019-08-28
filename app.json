@@ -1,0 +1,24 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/repairList/repairList",
+    "pages/repairList/repairOrder/repairOrder",
+    "pages/baoxiu/baoxiu",
+    "pages/yufangRepairList/yufangRepairList",
+    "pages/yufangRepairList/yufangRepair/yufangRepair",
+    "pages/noticeList/noticeList",
+    "pages/shebeiModal/shebeiModal",
+    "pages/repairHistoryList/repairHistoryList",
+    "pages/repairHistoryList/repairHistory/repairHistory",
+    "pages/zichanchaxun/zichanchaxun",
+    "pages/noticeList/notice/notice",
+    "pages/kpi/kpi"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#405f80",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-action-sheet": "vant-weapp/action-sheet"
+  },
+  "navigationBarTitleText": "故障报修单"
+}

@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="ratio">
+    <view class="ratio-inner">
+      <view class="ratio-title">
+        <text>本月PM工单完成率</text>
+      </view>
+      <view class="ratio-content">
+        <view class="ratio-item">
+          <view class="value">50</view>
+          <view class="key">工单总数</view>
+        </view>
+        <view class="ratio-item">
+          <view class="value">100</view>
+          <view class="key">工单完成数</view>
+        </view>
+        <view class="ratio-item">
+          <view class="value">50%</view>
+          <view class="key">工单完成率</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="ratio">
+    <view class="ratio-inner">
+      <view class="ratio-title">
+        <text>本月故障报修完成率</text>
+      </view>
+      <view class="ratio-content">
+        <view class="ratio-item">
+          <view class="value">50</view>
+          <view class="key">工单总数</view>
+        </view>
+        <view class="ratio-item">
+          <view class="value">100</view>
+          <view class="key">工单完成数</view>
+        </view>
+        <view class="ratio-item">
+          <view class="value">50%</view>
+          <view class="key">工单完成率</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="echarts-wrap">
+    <ec-canvas  ec="{{ ec }}"></ec-canvas>
+  </view>
+</view>
